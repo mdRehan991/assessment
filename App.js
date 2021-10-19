@@ -4,9 +4,7 @@ import TabNavigator from "./src/navigator/TabNavigator"
 
 const App = () => {
   return (
-    <SafeAreaView>
       <TabNavigator />
-    </SafeAreaView>
   );
 };
 

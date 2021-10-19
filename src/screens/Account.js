@@ -44,6 +44,7 @@ const Account = () => {
       </View>
       </View>
       <View>
+
       </View>
     </SafeAreaView>
   );
