@@ -1,12 +1,11 @@
 import React from 'react';
 import {SafeAreaView} from 'react-native';
-// import Screen from './src/screens/Screen';
-import Account from './src/screens/Account';
+import TabNavigator from "./src/navigator/TabNavigator"
 
 const App = () => {
   return (
     <SafeAreaView>
-      <Account />
+      <TabNavigator />
     </SafeAreaView>
   );
 };
