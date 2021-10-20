@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import Home from '../screens/Home';
 import Categories from '../screens/Categories';
 import MyCart from '../screens/MyCart';
 import Wishlist from '../screens/Wishlist';
 import Account from '../screens/Account';
+import {Image, StyleSheet} from 'react-native'
 
 const Tab = createBottomTabNavigator();
 
@@ -14,25 +14,28 @@ function TabNavigator() {
   return (
     <NavigationContainer>
       <Tab.Navigator
+        initialRouteName="Account"
         screenOptions={({route}) => ({
-          tabBarIcon: ({focused, color, size}) => {
+          tabBarIcon: ({focused}) => {
             let iconName;
 
             if (route.name === 'Home') {
-              iconName = focused ? 'home' : 'home-outline';
-            } else if (route.name === 'Categories') {
-              iconName = focused ? 'list' : 'list-outline';
+              iconName = focused ? require("../assets/home.png") : require("../assets/home-outline.png");
+            } 
+            else if (route.name === 'Categories') {
+              iconName = focused ? require("../assets/list.png") : require("../assets/list-outline.png");
             } else if (route.name === 'MyCart') {
-              iconName = focused ? 'cart' : 'cart-outline';
+              iconName = focused ? require("../assets/cart.png") : require("../assets/cart-outline.png");
             } else if (route.name === 'Wishlist') {
-              iconName = focused ? 'heart' : 'heart-outline';
+              iconName = focused ? require("../assets/heart.png") : require("../assets/heart-outline.png");
             } else if (route.name === 'Account') {
-              iconName = focused ? 'person' : 'person-outline';
+              iconName = focused ? require("../assets/person.png") : require("../assets/person-outline.png");
             }
-            return <Ionicons name={iconName} size={size} color={color} />;
+            return (<Image
+              style={styles.image}
+              source={iconName}/>);
           },
-
-          tabBarActiveTintColor: 'steelblue',
+          tabBarActiveTintColor: 'gray',
           tabBarInactiveTintColor: 'gray',
         })}>
         <Tab.Screen
@@ -71,13 +74,19 @@ function TabNavigator() {
           name="Account"
           component={Account}
           options={{
-            title: 'Account',
-            headerTitle: 'ACCOUNT',
+            headerShown: false,
           }}
         />
       </Tab.Navigator>
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  image: {
+    width: 25,
+    height: 25,
+  },
+})
 
 export default TabNavigator;

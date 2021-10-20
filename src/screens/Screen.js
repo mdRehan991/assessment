@@ -4,20 +4,31 @@ import SignUp from '../components/SignUp';
 import Join from '../components/Join';
 
 const Screen = () => {
-  const [state, setState] = useState(1);
+  const [state, setState] = useState({
+    id: 1,
+    a: styles.sign,
+    b: null
+  });
 
   return (
-
     <View>
       <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={() => setState(1)}>
+        <TouchableOpacity
+          style={[styles.button, state.a]}
+          onPress={() =>
+            setState({id: 1, a: styles.sign, b: null})
+          }>
           <Text style={styles.text}>Sign In</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => setState(2)}>
+        <TouchableOpacity
+          style={[styles.button, state.b]}
+          onPress={() =>
+            setState({id: 2, a: null, b: styles.sign})
+          }>
           <Text style={styles.text}>Join</Text>
         </TouchableOpacity>
       </View>
-      <View>{state === 1 ? <SignUp /> : <Join />}</View>
+      <View>{state.id === 1 ? <SignUp /> : <Join />}</View>
     </View>
   );
 };
@@ -26,17 +37,19 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 20,
     marginBottom: 45,
   },
   button: {
     height: 70,
     justifyContent: 'center',
-    borderColor: "#e6b400",
-    borderBottomWidth: 3,
   },
   text: {
     fontSize: 30,
+  },
+
+  sign: {
+    borderColor: '#e6b400',
+    borderBottomWidth: 3,
   },
 });
 

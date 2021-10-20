@@ -48,7 +48,7 @@ const socialButtonData = [
 ];
 
 const UserButtonData = {
-  text: 'Sign In',
+  text: 'Join Now',
   color: '#fff',
   bgColor: '#000',
   fontsize: 18,
@@ -142,8 +142,8 @@ const Join = () => {
       </View>
       <View style={styles.footer}>
         <TouchableOpacity style={styles.footerButton}>
-          <Text style={styles.fbText1}>Don't have an account?</Text>
-          <Text style={styles.fbText2}>Join</Text>
+          <Text style={styles.fbText1}>Already have an account?</Text>
+          <Text style={styles.fbText2}>Sign In</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
 
     checkboxContainer: {
         flexDirection: 'row', 
-        width: windowWidth - 30,
+        width: windowWidth - 35,
     },
 
     checkboxz: {
