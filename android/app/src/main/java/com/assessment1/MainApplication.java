@@ -49,14 +49,6 @@ public class MainApplication extends Application implements ReactApplication {
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
   }
 
-  @Override
-  protected List<ReactPackage> getPackages() {
-    return Arrays.asList(
-            new MainReactPackage(),
-            new ReactCheckBoxPackage()
-    );
-  }
-
 
   /**
    * Loads Flipper in React Native templates. Call this in the onCreate method with something like
